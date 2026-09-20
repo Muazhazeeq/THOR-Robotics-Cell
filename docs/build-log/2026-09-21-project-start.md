@@ -38,6 +38,46 @@ Establish the THOR Robotics Cell project and begin understanding the mechanical 
 
 \## Joint 1 Investigation
 
+### Verified Joint 1 Gear Transmission
+
+Inspection of the original FreeCAD source confirmed the Joint 1
+transmission uses a helical pinion driving an internal gear.
+
+Motor pinion (`Art1GearMotor`):
+
+- Teeth: 10
+- Module: 2.00 mm
+- Pressure angle: 20 degrees
+- Helix parameter beta: -32 degrees
+- Pitch diameter: 20 mm
+- Gear height: 12 mm
+
+Driven gear geometry (`Art1Bot`):
+
+- Teeth: 50
+- Module: 2.00 mm
+- Pressure angle: 20 degrees
+- Helix parameter beta: -32 degrees
+- Pitch diameter: 100 mm
+- Gear height: 15 mm
+
+The resulting reduction ratio is:
+
+50 / 10 = 5:1
+
+Therefore, approximately five motor revolutions are required for one
+revolution of Joint 1.
+
+The theoretical gear reduction increases output torque and angular
+resolution while decreasing output rotational speed.
+
+The pitch diameters also imply an approximate 40 mm offset between the
+motor axis and Joint 1 rotation axis:
+
+(100 mm - 20 mm) / 2 = 40 mm
+
+This value should later be checked against the motor mounting geometry.
+
 
 
 Files inspected:
